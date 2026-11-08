@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Producent: logowanie</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #fff; color: #111; max-width: 32rem; margin: 4rem auto; padding: 0 16px; }
+  a { color: #0b57d0; }
+</style>
+</head>
+<body>
+<p>Przekazuję logowanie do programu Producent na tym komputerze…</p>
+<p id="r" hidden>Jeśli nic się nie dzieje, <a id="l" href="#">kliknij tutaj</a>. Program Producent musi być włączony.</p>
+<script>
+  // Facebook odsyła tu kod logowania (tryb Live nie pozwala na adres http://localhost).
+  // Strona niczego nie zapisuje ani nie wysyła: tylko przekazuje adres do odbiornika Producenta na tym komputerze.
+  (function () {
+    var cel = "http://localhost:8766/meta" + window.location.search;
+    document.getElementById("l").href = cel;
+    setTimeout(function () { document.getElementById("r").hidden = false; }, 2500);
+    window.location.replace(cel);
+  })();
+</script>
+</body>
+</html>
